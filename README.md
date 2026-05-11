@@ -172,7 +172,7 @@ Classes are organized into three domains:
 
 **Outdoor** — birds, bells, cicadas_crickets, jet_aircraft, lawn_mower_brush_cutter, siren_alarm_outdoor, thunder_fireworks_gunshot, wind_turbine, voices_outdoor, crows_seagulls_magpies, glass_break_outdoor, horn, train, ...
 
-Full class list and label mappings are defined in `configs/ontology.py` (written by `NovaAI.ipynb`).
+Full class list and label mappings are defined in `NovaAI.ipynb`.
 
 ---
 
@@ -183,7 +183,7 @@ Full class list and label mappings are defined in `configs/ontology.py` (written
 1. **Standardization** — resample to 16 kHz, trim silence (`top_db=30`), peak-normalize, pad short clips or segment long clips with a 5-second hop
 2. **Quality filtering** — reject clips shorter than 0.5 s or with >90% silence ratio
 3. **Deduplication** — exact dedup via SHA-256 waveform hash, then near-dedup using 128-band log-mel embeddings at cosine similarity ≥ 0.95
-4. **Label mapping** — ontology in `configs/ontology.py` maps all heterogeneous source labels to 40 canonical unified classes
+4. **Label mapping** — all heterogeneous source labels are mapped to 40 canonical unified classes directly within `NovaAI.ipynb`.
 5. **Stratified splitting** — 70/15/15 train/val/test split, stratified jointly by `unified_label` and `source_dataset` (seed = 42)
 
 **Mel spectrogram settings (for model training):**
